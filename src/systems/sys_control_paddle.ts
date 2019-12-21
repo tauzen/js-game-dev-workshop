@@ -33,9 +33,5 @@ function update(game: Game, entity: Entity, delta: number) {
     let direction = <Vec2>[x_direction, y_direction];
     normalize(direction, direction);
 
-    let speed = 300;
-    let transform = game.World.Transform2D[entity];
-    transform.Translation[0] += direction[0] * speed * delta;
-    transform.Translation[1] += direction[1] * speed * delta;
-    transform.Dirty = true;
+    game.World.Direction[entity].Direction = direction;
 }
