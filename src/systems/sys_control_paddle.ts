@@ -13,7 +13,23 @@ export function sys_control_paddle(game: Game, delta: number) {
 }
 
 function update(game: Game, entity: Entity, delta: number) {
-    let direction = <Vec2>[0, 0];
+    let x_direction = 0;
+    if (game.InputState.ArrowLeft) {
+        x_direction -= 1;
+    }
+    if (game.InputState.ArrowRight) {
+        x_direction += 1;
+    }
+
+    let y_direction = 0;
+    if (game.InputState.ArrowUp) {
+        y_direction -= 1;
+    }
+    if (game.InputState.ArrowDown) {
+        y_direction += 1;
+    }
+
+    let direction = <Vec2>[x_direction, y_direction];
     let speed = 300;
 
     let transform = game.World.Transform2D[entity];
