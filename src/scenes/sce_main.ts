@@ -6,6 +6,8 @@ import {Game} from "../game.js";
 import {Vec2} from "../math/index.js";
 import {World} from "../world.js";
 
+const colors = ["green", "blue", "red", "orange", "pink"];
+
 export function scene_main(game: Game) {
     game.World = new World();
 
@@ -14,8 +16,15 @@ export function scene_main(game: Game) {
         Using: [control_paddle(), control_move(<Vec2>[0, 0], 300), draw_rect(100, 20, "green")],
     });
 
-    game.Add({
-        Translation: [game.ViewportWidth / 2, game.ViewportHeight / 2],
-        Using: [control_ball(), control_move(<Vec2>[1, 1], 600), draw_rect(20, 20, "red")],
-    });
+    for (let i = 0; i < 500; i++) {
+        const color = Math.round(Math.random() * colors.length);
+        game.Add({
+            Translation: [game.ViewportWidth / 2, game.ViewportHeight / 2],
+            Using: [
+                control_ball(),
+                control_move(<Vec2>[Math.random() * 100, Math.random() * 100], 600),
+                draw_rect(20, 20, colors[color]),
+            ],
+        });
+    }
 }
