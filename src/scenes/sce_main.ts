@@ -11,11 +11,11 @@ export function scene_main(game: Game) {
 
     game.Add({
         Translation: [game.ViewportWidth / 2, game.ViewportHeight - game.ViewportHeight / 8],
-        Using: [control_paddle(), control_move(<Vec2>[0, 0]), draw_rect(100, 20, "green")],
+        Using: [control_paddle(), control_move(<Vec2>[0, 0], 300), draw_rect(100, 20, "green")],
     });
 
     game.Add({
         Translation: [game.ViewportWidth / 2, game.ViewportHeight / 2],
-        Using: [control_ball(), control_move(<Vec2>[1, 1]), draw_rect(20, 20, "red")],
+        Using: [control_ball(), control_move(<Vec2>[1, 1], 600), draw_rect(20, 20, "red")],
     });
 }
