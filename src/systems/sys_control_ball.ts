@@ -1,5 +1,6 @@
 import {Has} from "../components/com_index.js";
 import {Entity, Game} from "../game.js";
+import {normalize} from "../math/vec2.js";
 
 const QUERY = Has.Transform2D | Has.ControlBall;
 
@@ -24,6 +25,7 @@ function update(game: Game, entity: Entity, delta: number) {
         direction[1] = -direction[1];
     }
 
+    normalize(direction, direction);
     transform.Translation[0] += direction[0] * speed * delta;
     transform.Translation[1] += direction[1] * speed * delta;
     transform.Dirty = true;
