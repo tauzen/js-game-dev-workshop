@@ -5,6 +5,7 @@ const enum Component {
     Transform2D,
     ControlBall,
     Move,
+    ControlBrick,
 }
 
 export const enum Has {
@@ -14,4 +15,5 @@ export const enum Has {
     Transform2D = 1 << Component.Transform2D,
     ControlBall = 1 << Component.ControlBall,
     Move = 1 << Component.Move,
+    ControlBrick = 1 << Component.ControlBrick,
 }
