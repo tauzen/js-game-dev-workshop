@@ -13,11 +13,11 @@ export function sys_control_move(game: Game, delta: number) {
 }
 
 function update(game: Game, entity: Entity, delta: number) {
-    let direction = game.World.Direction[entity];
+    let move = game.World.Move[entity];
     let transform = game.World.Transform2D[entity];
 
-    normalize(direction.Direction, direction.Direction);
-    transform.Translation[0] += direction.Direction[0] * direction.Speed * delta;
-    transform.Translation[1] += direction.Direction[1] * direction.Speed * delta;
+    normalize(move.Direction, move.Direction);
+    transform.Translation[0] += move.Direction[0] * move.Speed * delta;
+    transform.Translation[1] += move.Direction[1] * move.Speed * delta;
     transform.Dirty = true;
 }
